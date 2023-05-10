@@ -32,3 +32,11 @@ scrumBoard.addEventListener('click', () => {
 modalBG.addEventListener('click', () => {
     modal.classList.remove('is-active')
 });
+
+var catBtn = document.querySelector('#cat-btn');
+var catFactUrl = "https://cat-fact.herokuapp.com";
+var catPicUrl = "https://cataas.com/cat"
+
+catBtn.addEventListener('click', function() {
+
+})
