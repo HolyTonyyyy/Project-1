@@ -4,7 +4,6 @@
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>Project 1</title>
-    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bulma@0.9.4/css/bulma.min.css">
     <link href="https://fonts.googleapis.com/css2?family=Nanum+Gothic&family=Varela+Round&display=swap" rel="stylesheet">
     <script src="https://cdn.jsdelivr.net/npm/dayjs@1.11.3/dayjs.min.js"></script>
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bulma@0.9.4/css/bulma.min.css">
@@ -13,30 +12,36 @@
       
   </head>
   <header>
-    <h1 class="kitty">Kitty Countdown</h1>
+    <h1 class="kitty" column>Kitty Countdown</h1>
   </header>
   <body>
     <main>
       <div class="section">
         <!--this is where the timer display-->
-        <h1 id="timer">*timer here*</h1>
-        <p>Countdown scrum board with a kitty bomb</p>
+        <h1 id="timer"></h1>
+        
       </div>
       <section class="columns is-mobile" id="">
-        <div class="column " id="productionLvl"></div>
-         <h3 class="title is-4">Working On</h3>
-          <p class="todo" draggable="true">Adfadfgsafd</p>
-        </div>
-        
-         <div class="column"></div>
-         <h3 class="title is-4">Test</h3>
-          <p class="todo" draggable="true">Befsdf</p>
-        </div>
-        
-         <div class="column"></div>
-         <h3 class="title is-4">Done</h3>
-          <p class="todo" draggable="true">Cdfasdfasdgf</p>
+        <div class="column" >
+         <div class="box">
+           <h3 class="title is-4">Working On</h3>
+            <p class="todo" draggable="true"></p>
          </div>
+        </div>
+        
+         <div class="column">
+          <div class="box">
+           <h3 class="title is-4">Test</h3>
+           <p class="todo" draggable="true"></p>
+          </div>
+        </div>
+        
+         <div class="column">
+          <div class="box">
+           <h3 class="title is-4">Done</h3>
+           <p class="todo" draggable="true"></p>
+          </div>
+        </div>
 
       </section>
       <!--Cat Button-->
