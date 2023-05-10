@@ -1,4 +1,5 @@
 
+
 var timerEl = document.querySelector('#timer')
 var unixDueDate = dayjs('2023-05-18').unix();
 
@@ -20,4 +21,14 @@ timer = setInterval(function() {
     timerEl.textContent = timer     
 }, 1000);
 
+var scrumBoard = document.querySelector('.section');
+var modalBG = document.querySelector('.modal-background');
+var modal = document.querySelector('.modal');
 
+scrumBoard.addEventListener('click', () => {
+    modal.classList.add('is-active');
+});
+
+modalBG.addEventListener('click', () => {
+    modal.classList.remove('is-active')
+});
