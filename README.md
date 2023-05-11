@@ -23,3 +23,5 @@ Fun Fact: Cats can Lower stress, anxiety and can improve your cardiovasculer hea
 # Links
 https://cataas.com/cat
 https://cat-fact.herokuapp.com/facts
+
+![Screenshot (6)](https://github.com/HolyTonyyyy/Project-1/assets/129125608/658c35bb-0981-4dca-93bb-674e9a5fb0d8)
