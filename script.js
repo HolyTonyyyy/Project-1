@@ -34,10 +34,18 @@ inputModalBG.addEventListener('click', () => {
 });
 
 var catBtn = document.querySelector('#cat-btn');
+var catQuote = document.querySelector('#quote')
 var catModal = document.querySelector('#catModal')
 var catModalBg = document.querySelector('#catModal-background')
 var catFactUrl = "https://cat-fact.herokuapp.com/facts";
 var catPicUrl = "https://cataas.com/cat"
+
+fetch(catFactUrl)
+.then(response => response.json())
+.then(function(response){ 
+    catFact = (response[getRandomInt(0, response.length)].text)
+    catQuote.textContent = catFact
+})
 
 function getRandomInt(min, max) {
     min = Math.ceil(min);
@@ -60,7 +68,7 @@ catBtn.addEventListener('click', function() {
         catModal.children[0].children[0].children[1].textContent = catFact
     })
 
-    catModal.children[0].children[0].children[0].setAttribute('src', 'https://cataas.com/cat')
-    catModal.children[0].children[0].children[1].textContent = catFact
+    catModal.children[0].children[0].children[1].setAttribute('src', 'https://cataas.com/cat')
+    catModal.children[0].children[0].children[2].textContent = catFact
 
 })
