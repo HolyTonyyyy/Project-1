@@ -1,0 +1,24 @@
+.box {
+    width: 250px;
+    height: 400px;
+}
+
+#timer{
+    font-size: 40px;
+    font-weight: bold;
+    text-align: center
+}
+
+h3{
+    text-align: center;
+}
+
+.quote{
+    text-align: center;
+}
+
+.timeLeft{
+    text-align: center;
+    font-weight: bold;
+    margin-bottom: 20px;
+}
