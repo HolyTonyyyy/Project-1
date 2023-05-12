@@ -21,11 +21,11 @@ timer = setInterval(function() {
     timerEl.textContent = timer     
 }, 1000);
 
-var scrumBoard = document.querySelector('.section');
+var addButton = document.querySelector('#addBtn');
 var inputModalBG = document.querySelector('#inputModal-background');
 var inputModal = document.querySelector('#inputModal');
 
-scrumBoard.addEventListener('click', () => {
+addButton.addEventListener('click', () => {
     inputModal.classList.add('is-active');
 });
 
