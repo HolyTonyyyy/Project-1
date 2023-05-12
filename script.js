@@ -53,7 +53,9 @@ function getRandomInt(min, max) {
     return Math.floor(Math.random() * (max - min) + min);
   }
 
-catModalBg.addEventListener('click', function() {
+catModalBg.addEventListener('click', function(event) {
+    console.log(event.target)
+    if(event.target.id != 'catModal-background' && event.target.id != 'closeCatModal') return;
     catModal.classList.remove('is-active')
     catModal.children[0].children[0].children[0].setAttribute('src', '')
 })
@@ -65,10 +67,8 @@ catBtn.addEventListener('click', function() {
     .then(response => response.json())
     .then(function(response){ 
         catFact = (response[getRandomInt(0, response.length)].text)
-        catModal.children[0].children[0].children[1].textContent = catFact
+        catModal.children[0].children[0].children[2].textContent = catFact
     })
 
     catModal.children[0].children[0].children[1].setAttribute('src', 'https://cataas.com/cat')
-    catModal.children[0].children[0].children[2].textContent = catFact
-
 })
