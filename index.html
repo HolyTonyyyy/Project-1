@@ -22,7 +22,7 @@
         <div class="timeLeft">Hours Left</div>
         <div class="columns">
           <div class="column is-three-fiths is-offset-one-fith has-background-light">
-            <p class="quote">dfjkha dshgla jsfgjahfs ljghasl jfdhgljs afdghl;j</p>
+            <p class="quote" id="quote">dfjkha dshgla jsfgjahfs ljghasl jfdhgljs afdghl;j</p>
           </div>
         </div>
         </div>
@@ -37,7 +37,9 @@
           </button>
          </h3>
             <hr>
-          <p class="task" draggable="true">Adfadfgsafd</p>
+          <ul class="sortable container" style="height: 100%">
+            <li class="task" draggable="true">Adfadfgsafd</li> 
+          </ul>         
         </div>
        </div>
         
@@ -45,7 +47,9 @@
          <div class="box has-background-warning">
          <h3 class="title is-4">Test</h3>
             <hr>
-          <p class="task" draggable="true">Adfadfgsafd</p>
+          <ul class="sortable container" style="height: 100%">
+            <li class="task" draggable="true">Adfadfgsafd</li> 
+          </ul>  
         </div>
        </div>
         
@@ -53,7 +57,10 @@
          <div class="box has-background-success">
          <h3 class="title is-4">Done</h3>
             <hr>
-          <p class="task" draggable="true">Adfadfgsafd</p>
+          <ul class="sortable container" style="height: 100%">
+            <li class="task" draggable="true">Adfadfgsafd</li>
+            <li class="task" draggable="true">Adfadfgsafd</li> 
+            </ul>  
         </div>
        </div>
 
@@ -88,6 +95,8 @@
           </div>
       </div>
     </main>
+    <script src="https://code.jquery.com/jquery-1.12.4.js"></script>
+    <script src="https://code.jquery.com/ui/1.12.1/jquery-ui.js"></script>
     <script src="script.js"></script>
   </body>
 </html>
