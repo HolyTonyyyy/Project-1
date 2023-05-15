@@ -72,3 +72,9 @@ catBtn.addEventListener('click', function() {
 
     catModal.children[0].children[0].children[1].setAttribute('src', 'https://cataas.com/cat')
 })
+
+$(function () {
+    $('.container').sortable({
+        connectWith: ".container"
+    });
+});
