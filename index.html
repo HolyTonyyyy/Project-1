@@ -19,32 +19,54 @@
       <div class="section">
         <!--this is where the timer display-->
         <h1 id="timer"></h1>
-        
+        <div class="timeLeft">Hours Left</div>
+        <div class="columns">
+          <div class="column is-three-fiths is-offset-one-fith has-background-light">
+            <p class="quote" id="quote">dfjkha dshgla jsfgjahfs ljghasl jfdhgljs afdghl;j</p>
+          </div>
+        </div>
+        </div>
       </div>
+
       <section class="columns is-mobile" id="">
-        <div class="column" >
-         <div class="box">
-           <h3 class="title is-4">Working On</h3>
-            <p class="todo" draggable="true"></p>
-         </div>
+        <div class="column is-offset-1 is-three-quarters-mobile" id="swim-lane"></div>
+         <div class="box has-background-danger">
+         <h3 class="title is-4">Working On
+          <button id="addBtn" class="button is-dark is-small is-rounded is-outlined">
+            +add
+          </button>
+         </h3>
+            <hr>
+          <ul class="sortable container" style="height: 100%">
+            <li class="task" draggable="true">Adfadfgsafd</li> 
+          </ul>         
         </div>
+       </div>
         
-         <div class="column">
-          <div class="box">
-           <h3 class="title is-4">Test</h3>
-           <p class="todo" draggable="true"></p>
-          </div>
+         <div class="column" id="swim-lane"></div>
+         <div class="box has-background-warning">
+         <h3 class="title is-4">Test</h3>
+            <hr>
+          <ul class="sortable container" style="height: 100%">
+            <li class="task" draggable="true">Adfadfgsafd</li> 
+          </ul>  
         </div>
+       </div>
         
-         <div class="column">
-          <div class="box">
-           <h3 class="title is-4">Done</h3>
-           <p class="todo" draggable="true"></p>
-          </div>
+        <div class="column" id="swim-lane"></div>
+         <div class="box has-background-success">
+         <h3 class="title is-4">Done</h3>
+            <hr>
+          <ul class="sortable container" style="height: 100%">
+            <li class="task" draggable="true">Adfadfgsafd</li>
+            <li class="task" draggable="true">Adfadfgsafd</li> 
+            </ul>  
         </div>
+       </div>
 
       </section>
       <!--Cat Button-->
+
       <button class="cat-btn">Cat</button>
       <!--Bottom Footer-->
       <div class="footer">
@@ -53,9 +75,22 @@
            #BetterthenDogs
         </p>
     </div>
+
+      <button id="cat-btn">Cat</button>      
+      <div id="catModal" class="modal">
+        <div id="catModal-background" class="modal-background">
+          <div class="modal-content has-background-white py-5 px-5">
+            <button id="closeCatModal" style="margin-bottom: 7px; justify-self: right;">X</button>
+            <img id="catPic">
+            <p id="catFact"></p>
+          </div>
+        </div>
+      </div>
+
+
       <!-- modal -->
-      <div class="modal">
-        <div class="modal-background"></div>
+      <div id="inputModal" class="modal">
+        <div id="inputModal-background" class="modal-background"></div>
           <div class="modal-content has-background-white py-5 px-5">
             <form >
               <div class="field">
@@ -71,6 +106,8 @@
           </div>
       </div>
     </main>
+    <script src="https://code.jquery.com/jquery-1.12.4.js"></script>
+    <script src="https://code.jquery.com/ui/1.12.1/jquery-ui.js"></script>
     <script src="script.js"></script>
     <script src="https://code.jquery.com/jquery-1.12.4.js"></script>
     <script src="https://code.jquery.com/ui/1.12.1/jquery-ui.js"></script>
