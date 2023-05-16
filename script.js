@@ -1,4 +1,64 @@
 
+var workingOnContainer = document.querySelector("#workingOnContainer");
+var testContainer = document.querySelector("#testContainer");
+var doneContainer = document.querySelector("#doneContainer");
+var workingOnItems = document.querySelectorAll(".workingOnItems");
+var testItems = document.querySelectorAll(".testItems");
+var doneItems = document.querySelectorAll(".doneItems")
+
+
+var workingArray = []
+var testArray = []
+var doneArray = []
+
+retrieveLocal()
+
+function retrieveLocal() {
+    workingArray = JSON.parse(localStorage.getItem("workingOn"))
+    testArray = JSON.parse(localStorage.getItem("test"))
+    doneArray = JSON.parse(localStorage.getItem("done"))
+    
+    if(workingArray != null) for(let i=0;i<workingArray.length;i++) {
+        workingOnContainer.appendChild(document.createElement("li"))
+        workingOnContainer.lastElementChild.textContent = workingArray[i].text
+        workingOnContainer.lastElementChild.classList.add("workingOnItems")
+    }
+    if(testArray != null) for(let i=0;i<testArray.length;i++) {
+        testContainer.appendChild(document.createElement("li"))
+        testContainer.lastElementChild.textContent = testArray[i].text
+        testContainer.lastElementChild.classList.add("testItems")
+    }
+    if(doneArray != null) for(let i=0;i<doneArray.length;i++) {
+        doneContainer.appendChild(document.createElement("li"))
+        doneContainer.lastElementChild.textContent = doneArray[i].text
+        doneContainer.lastElementChild.classList.add("doneItems")
+    }
+
+}
+
+// function saveLocal() {
+//     for(let i=0;i<workingOn.length;i++) {
+//         workingOnContainer.childNodes[i].classList.remove()
+//         workingOnContainer.childNodes[i].classList.add("workingOn")
+//         let temp = {text: workingOn[i].textContent, class: "workingOn"}
+//         workingArray.push(temp)
+//     }
+//     for(let i=0;i<test.length;i++) {
+//         testContainer.childNodes[i].classList.remove()
+//         testContainer.childNodes[i].classList.add("test")
+//         let temp = {text: test[i].textContent, class: "test"}
+//         testArray.push(temp)
+//     }
+//     for(let i=0;i<done.length;i++) {
+//         doneContainer.childNodes[i].classList.remove()
+//         doneContainer.childNodes[i].classList.add("done")
+//         let temp = {text: done[i].textContent, class: "done"}
+//         doneArray.push(temp)
+//     }
+//     localStorage.setItem("workingOn", JSON.stringify(workingArray))
+//     localStorage.setItem("test", JSON.stringify(testArray))
+//     localStorage.setItem("done", JSON.stringify(doneArray))
+// }
 
 var timerEl = document.querySelector('#timer')
 var unixDueDate = dayjs('2023-05-18').unix();
@@ -75,6 +135,45 @@ catBtn.addEventListener('click', function() {
 
 $(function () {
     $('.container').sortable({
-        connectWith: ".container"
+        connectWith: ".container",
+        stop: function() {
+            workingArray = []
+            for(let i=0;i<document.querySelector("#workingOnContainer").childElementCount;i++) {
+                if(document.querySelector("#workingOnContainer").childElementCount == 0);
+                else {
+                    document.querySelector("#workingOnContainer").children[i].classList.remove("testItems", "doneItems")
+                    document.querySelector("#workingOnContainer").children[i].classList.add("workingOnItems")
+                    let temp = {text: document.querySelector("#workingOnContainer").children[i].textContent}
+                    workingArray.push(temp)                    
+                }
+            }
+
+            testArray = []
+            for(let i=0;i<document.querySelector("#testContainer").childElementCount;i++) {
+                if(document.querySelector("#testContainer").childElementCount == 0);
+                else {
+                    document.querySelector("#testContainer").children[i].classList.remove("workingOnItems", "doneItems")
+                    document.querySelector("#testContainer").children[i].classList.add("testItems")
+                    let temp = {text: document.querySelector("#testContainer").children[i].textContent}
+                    testArray.push(temp)
+                }
+            }
+
+            doneArray = []
+            for(let i=0;i<document.querySelector("#doneContainer").childElementCount;i++) {
+                if(document.querySelector("#doneContainer").childElementCount == 0);
+                else {
+                    document.querySelector("#doneContainer").children[i].classList.remove("testItems", "workingOnItems")
+                    document.querySelector("#doneContainer").children[i].classList.add("doneItems")
+                    let temp = {text: document.querySelector("#doneContainer").children[i].textContent}
+                    doneArray.push(temp)                    
+                }
+            }
+
+            localStorage.setItem("workingOn", JSON.stringify(workingArray))
+            localStorage.setItem("test", JSON.stringify(testArray))
+            localStorage.setItem("done", JSON.stringify(doneArray))
+            console.log("done")
+        }
     });
 });
