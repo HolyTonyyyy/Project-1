@@ -166,3 +166,17 @@ $(function () {
         }
     });
 });
+
+
+var addTeamBtn = document.querySelector('#addTeam');
+var teamModalBG = document.querySelector('#teamModal-background');
+var teamModal = document.querySelector('#teamModal');
+
+addTeamBtn.addEventListener('click', () => {
+    teamModal.classList.add('is-active');
+});
+
+teamModalBG.addEventListener('click', () => {
+    teamModal.classList.remove('is-active')
+});
+

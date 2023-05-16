@@ -9,7 +9,6 @@
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bulma@0.9.4/css/bulma.min.css">
     <link rel="stylesheet" href="style.css" />
 
-      
   </head>
   <header>
     <h1 class="kitty" column>Kitty Countdown</h1>
@@ -22,79 +21,87 @@
         <div class="timeLeft">Hours Left</div>
         <div class="columns">
           <div class="column is-three-fiths is-offset-one-fith has-background-light">
-            <p class="quote" id="quote">dfjkha dshgla jsfgjahfs ljghasl jfdhgljs afdghl;j</p>
+            <p class="quote" id="quote"></p>
           </div>
         </div>
         </div>
       </div>
 
-      <section class="columns is-mobile" id="">
-        <div class="column" id="swim-lane"></div>
-         <div class="box has-background-danger">
-         <h3 class="title is-4">Working On
-          <button id="addBtn" class="button is-dark is-small is-rounded is-outlined">
-            +add
-          </button>
-         </h3>
-            <hr>
-          <ul class="container" id="workingOnContainer" style="height: 80%">
+      <button id="addBtn" class="button is-dark is-small is-rounded is-outlined has-background-grey-lighter">
+        +Add Task
+       </button>  
+
+   <section class="columns">
+    <div class="column is-mobile">
+      <div class="box has-background-danger">
+        <h3 class="title is-4">Working On
+          <button id="addTeam" class="button is-small is-outlined is-rounded">+Team</button>
+          <div id="teamModal" class="modal">
+            <div id="teamModal-background" class="modal-background"></div>
+              <div class="modal-content has-background-white py-5 px-5">
+                  <form >
+                    <div class="field">
+                      <label class="label">Enter Team Member Name:</label>
+                      <div class="control">
+                        <input type="text" class="input">
+                      </div>
+                    </div>
+                    <div class="button">
+                      <button>Save</button>
+                    </div>
+                  </form>
+                </div>
+            </div>
+        </h3>
+         <hr>
+        <ul class="container" id="workingOnContainer" style="height: 80%">
             <!-- <li class="workingOnItems">Working on list Item</li> -->
           </ul>         
-        </div>
-       </div>
-        
-         <div class="column" id="swim-lane"></div>
-         <div class="box has-background-warning">
-         <h3 class="title is-4">Test</h3>
-            <hr>
-          <ul class="container" id="testContainer" style="height: 80%">
+     </div>
+   </div>
+         
+   <div class="column is-mobile">
+      <div class="box has-background-warning">
+        <h3 class="title is-4">Test</h3>
+         <hr>
+            <ul class="container" id="testContainer" style="height: 80%">
             <!-- <li class="testItems">Test list Item</li> -->
-          </ul>  
-        </div>
-       </div>
+          </ul>   
+      </div>
+   </div>
         
-        <div class="column" id="swim-lane"></div>
-         <div class="box has-background-success">
-         <h3 class="title is-4">Done</h3>
-            <hr>
-          <ul class="container" id="doneContainer" style="height: 70%">
+    <div class="column is-mobile">
+      <div class="box has-background-success">
+        <h3 class="title is-4">Done</h3>
+         <hr>
+         <ul class="container" id="doneContainer" style="height: 70%">
             <!-- <li class="doneItems">Done list Item</li> -->
           </ul> 
           <ul class="container" id="deleteContainer" style="height:10%; background-color: rgb(177, 102, 102); border-radius: 5px; border: 2px rgb(148, 24, 24) dashed; color:lightgrey">
             Drag Here to Delete
-          </ul> 
-        </div>
-        <div class="column"></div>
-       </div>
+          </ul>  
+     </div>
+          <div class="column"></div>
+   </div>
+     
+   </section>
+   <!--Cat Button-->
+   <button id="cat-btn">Morale Boost</button>      
+    <div id="catModal" class="modal">
+      <div id="catModal-background" class="modal-background">
+        <div class="modal-content has-background-white py-5 px-5">
+          <button id="closeCatModal" style="margin-bottom: 7px; justify-self: right;">X</button>
 
-      </section>
-      <!--Cat Button-->
-
-      <button class="cat-btn">Cat</button>
-      <!--Bottom Footer-->
-      <div class="footer">
-        <h2> We ❤️️ Cats</h2>
-        <p>
-           #BetterthenDogs
-        </p>
-    </div>
-
-      <button id="cat-btn">Cat</button>      
-      <div id="catModal" class="modal">
-        <div id="catModal-background" class="modal-background">
-          <div class="modal-content has-background-white py-5 px-5">
-            <button id="closeCatModal" style="margin-bottom: 7px; justify-self: right;">X</button>
             <img id="catPic">
             <p id="catFact"></p>
-          </div>
         </div>
       </div>
+    </div>
 
-
-      <!-- modal -->
-      <div id="inputModal" class="modal">
-        <div id="inputModal-background" class="modal-background"></div>
-          <div class="modal-content has-background-white py-5 px-5">
+    <!-- modal -->
+    <div id="inputModal" class="modal">
+      <div id="inputModal-background" class="modal-background"></div>
+        <div class="modal-content has-background-white py-5 px-5">
             <form >
               <div class="field">
                 <label class="label">Enter A Task:</label>
@@ -108,12 +115,9 @@
             </form>
           </div>
       </div>
-    </main>
+   </main>
     <script src="https://code.jquery.com/jquery-1.12.4.js"></script>
     <script src="https://code.jquery.com/ui/1.12.1/jquery-ui.js"></script>
     <script src="script.js"></script>
-    <script src="https://code.jquery.com/jquery-1.12.4.js"></script>
-    <script src="https://code.jquery.com/ui/1.12.1/jquery-ui.js"></script>
   </body>
 </html>
-
