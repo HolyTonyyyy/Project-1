@@ -158,10 +158,11 @@ $(function () {
                 }
             }
 
+            document.querySelector('#deleteContainer').removeChild(document.querySelector('#deleteContainer').children[0])
+
             localStorage.setItem("workingOn", JSON.stringify(workingArray))
             localStorage.setItem("test", JSON.stringify(testArray))
             localStorage.setItem("done", JSON.stringify(doneArray))
-            console.log("done")
         }
     });
 });
