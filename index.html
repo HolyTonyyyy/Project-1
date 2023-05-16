@@ -27,6 +27,7 @@
         </div>
       </div>
 
+
       <button id="addBtn" class="button is-dark is-small is-rounded is-outlined has-background-grey-lighter">
         +Add Task
        </button>  
@@ -86,6 +87,7 @@
       <div id="catModal-background" class="modal-background">
         <div class="modal-content has-background-white py-5 px-5">
           <button id="closeCatModal" style="margin-bottom: 7px; justify-self: right;">X</button>
+
             <img id="catPic">
             <p id="catFact"></p>
         </div>
@@ -100,11 +102,11 @@
               <div class="field">
                 <label class="label">Enter A Task:</label>
                 <div class="control">
-                  <input type="text" class="input">
+                  <input type="text" id="taskInput">
                 </div>
               </div>
               <div class="button">
-                <button>Save</button>
+                <button id="saveInput">Save</button>
               </div>
             </form>
           </div>
