@@ -185,3 +185,16 @@ catBtn.addEventListener('click', function() { // event listener to open cat moda
     // retrieve and display cat picture
     catModal.children[0].children[0].children[1].setAttribute('src', 'https://cataas.com/cat')
 })
+
+var addTeamBtn = document.querySelector('#addTeam');
+var teamModalBG = document.querySelector('#teamModal-background');
+var teamModal = document.querySelector('#teamModal');
+
+addTeamBtn.addEventListener('click', () => {
+    teamModal.classList.add('is-active');
+});
+
+teamModalBG.addEventListener('click', () => {
+    teamModal.classList.remove('is-active')
+});
+
