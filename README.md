@@ -1,11 +1,7 @@
 
-# Project-1
-
-Created by: 
-
 ## Project-1
 
-# Created by: 
+# Created by:  
 
 Matthew Herford,
 Anthony Bradford, 
