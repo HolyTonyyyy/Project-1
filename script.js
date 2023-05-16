@@ -36,30 +36,6 @@ function retrieveLocal() {
 
 }
 
-// function saveLocal() {
-//     for(let i=0;i<workingOn.length;i++) {
-//         workingOnContainer.childNodes[i].classList.remove()
-//         workingOnContainer.childNodes[i].classList.add("workingOn")
-//         let temp = {text: workingOn[i].textContent, class: "workingOn"}
-//         workingArray.push(temp)
-//     }
-//     for(let i=0;i<test.length;i++) {
-//         testContainer.childNodes[i].classList.remove()
-//         testContainer.childNodes[i].classList.add("test")
-//         let temp = {text: test[i].textContent, class: "test"}
-//         testArray.push(temp)
-//     }
-//     for(let i=0;i<done.length;i++) {
-//         doneContainer.childNodes[i].classList.remove()
-//         doneContainer.childNodes[i].classList.add("done")
-//         let temp = {text: done[i].textContent, class: "done"}
-//         doneArray.push(temp)
-//     }
-//     localStorage.setItem("workingOn", JSON.stringify(workingArray))
-//     localStorage.setItem("test", JSON.stringify(testArray))
-//     localStorage.setItem("done", JSON.stringify(doneArray))
-// }
-
 var timerEl = document.querySelector('#timer')
 var unixDueDate = dayjs('2023-05-18').unix();
 
@@ -84,6 +60,17 @@ timer = setInterval(function() {
 var addButton = document.querySelector('#addBtn');
 var inputModalBG = document.querySelector('#inputModal-background');
 var inputModal = document.querySelector('#inputModal');
+var saveInput = document.querySelector("#saveInput")
+var textInput = document.querySelector("#taskInput")
+
+saveInput.addEventListener('click', function() {
+    event.preventDefault()
+    console.log(textInput.value)
+    workingOnContainer.appendChild(document.createElement("li"))
+    workingOnContainer.lastElementChild.textContent = textInput.value
+    workingOnContainer.lastElementChild.classList.add("workingOnItems")
+    inputModal.classList.remove('is-active')
+})
 
 addButton.addEventListener('click', () => {
     inputModal.classList.add('is-active');
