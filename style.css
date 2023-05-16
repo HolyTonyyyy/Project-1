@@ -43,3 +43,10 @@ h3{
     margin-bottom: 20px;
 
 }
+
+li{
+    border: 1px solid rgb(17, 17, 108);
+    background-color: rosybrown;
+    border-radius: 10px;
+    font-size: 1rem;
+}
