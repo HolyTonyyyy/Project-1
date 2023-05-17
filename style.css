@@ -25,8 +25,8 @@ body {
 #cat-btn {
     font-size: 40px;
     border-radius: 10px;
-
-    text-align: center
+    text-align: center;
+    margin-left: 520px;
 }
 
 h3{
@@ -52,9 +52,15 @@ li{
     background-color: rosybrown;
     border-radius: 10px;
     font-size: 1rem;
+    text-indent: 5px;
 }
 
 #box{
     display: flex;
     justify-content: center;
+}
+
+.teamMember{
+    text-align: center;
+    background-color: white;
 }
