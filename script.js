@@ -90,7 +90,7 @@ $(function () {
 });
 
 var timerEl = document.querySelector('#timer')
-var unixDueDate = dayjs('2023-05-18').unix();
+var unixDueDate = dayjs('2023-05-18 9:30 PM').unix();
 
 timer = setInterval(function() {
 
