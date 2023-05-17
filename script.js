@@ -22,17 +22,17 @@ function retrieveLocal() {
     if(workingArray != null) for(let i=0;i<workingArray.length;i++) {
         workingOnContainer.appendChild(document.createElement("li"))
         workingOnContainer.lastElementChild.textContent = workingArray[i].text
-        workingOnContainer.lastElementChild.classList.add("workingOnItems")
+        workingOnContainer.lastElementChild.classList.add(workingArray[i].class)
     }
     if(testArray != null) for(let i=0;i<testArray.length;i++) {
         testContainer.appendChild(document.createElement("li"))
         testContainer.lastElementChild.textContent = testArray[i].text
-        testContainer.lastElementChild.classList.add("testItems")
+        testContainer.lastElementChild.classList.add(testArray[i].class)
     }
     if(doneArray != null) for(let i=0;i<doneArray.length;i++) {
         doneContainer.appendChild(document.createElement("li"))
         doneContainer.lastElementChild.textContent = doneArray[i].text
-        doneContainer.lastElementChild.classList.add("doneItems")
+        doneContainer.lastElementChild.classList.add(doneArray[i].class)
     }
 
 }
@@ -40,54 +40,59 @@ function retrieveLocal() {
 $(function () {
     $('.container').sortable({  // allows the items to be sorted
         connectWith: ".container",  // connects all of the containers together
-
-        stop: function() {  // function runs when dragging element has stopped
-
-            // for loops changes classes, converts elements into objects and pushes them into arrays
-            workingArray = [] // working column
-            for(let i=0;i<document.querySelector("#workingOnContainer").childElementCount;i++) {
-                if(document.querySelector("#workingOnContainer").childElementCount == 0);
-                else {
-                    document.querySelector("#workingOnContainer").children[i].classList.remove("testItems", "doneItems")
-                    document.querySelector("#workingOnContainer").children[i].classList.add("workingOnItems")
-                    let temp = {text: document.querySelector("#workingOnContainer").children[i].textContent}
-                    workingArray.push(temp)                    
-                }
-            }
-
-            testArray = [] // testing column
-            for(let i=0;i<document.querySelector("#testContainer").childElementCount;i++) {
-                if(document.querySelector("#testContainer").childElementCount == 0);
-                else {
-                    document.querySelector("#testContainer").children[i].classList.remove("workingOnItems", "doneItems")
-                    document.querySelector("#testContainer").children[i].classList.add("testItems")
-                    let temp = {text: document.querySelector("#testContainer").children[i].textContent}
-                    testArray.push(temp)
-                }
-            }
-
-            doneArray = [] // done column
-            for(let i=0;i<document.querySelector("#doneContainer").childElementCount;i++) {
-                if(document.querySelector("#doneContainer").childElementCount == 0);
-                else {
-                    document.querySelector("#doneContainer").children[i].classList.remove("testItems", "workingOnItems")
-                    document.querySelector("#doneContainer").children[i].classList.add("doneItems")
-                    let temp = {text: document.querySelector("#doneContainer").children[i].textContent}
-                    doneArray.push(temp)                    
-                }
-            }
-
-            // deletes any elements that get dropped into the delete container
-            if(document.querySelector("#deleteContainer").childElementCount == 0);
-            else document.querySelector('#deleteContainer').removeChild(document.querySelector('#deleteContainer').children[0])
-
-            // sets localstorage == to the prior created arrays
-            localStorage.setItem("workingOn", JSON.stringify(workingArray))
-            localStorage.setItem("test", JSON.stringify(testArray))
-            localStorage.setItem("done", JSON.stringify(doneArray))
-        }
+        stop: save
     });
 });
+
+function save() {  // function runs when dragging element has stopped
+
+    // for loops changes classes, converts elements into objects and pushes them into arrays
+    workingArray = [] // working column
+    for(let i=0;i<document.querySelector("#workingOnContainer").childElementCount;i++) {
+        if(document.querySelector("#workingOnContainer").childElementCount == 0);
+        else {
+            document.querySelector("#workingOnContainer").children[i].classList.remove("testItems", "doneItems")
+            document.querySelector("#workingOnContainer").children[i].classList.add("workingOnItems")
+            let temp = {text: document.querySelector("#workingOnContainer").children[i].textContent,
+                        class: "workingOn"}
+            workingArray.push(temp)                    
+        }
+    }
+
+    testArray = [] // testing column
+    for(let i=0;i<document.querySelector("#testContainer").childElementCount;i++) {
+        if(document.querySelector("#testContainer").childElementCount == 0);
+        else {
+            document.querySelector("#testContainer").children[i].classList.remove("workingOnItems", "doneItems")
+            document.querySelector("#testContainer").children[i].classList.add("testItems")
+            let temp = {text: document.querySelector("#testContainer").children[i].textContent,
+                        class: "test"}
+            testArray.push(temp)
+        }
+    }
+
+    doneArray = [] // done column
+    for(let i=0;i<document.querySelector("#doneContainer").childElementCount;i++) {
+        if(document.querySelector("#doneContainer").childElementCount == 0);
+        else {
+            document.querySelector("#doneContainer").children[i].classList.remove("testItems", "workingOnItems")
+            document.querySelector("#doneContainer").children[i].classList.add("doneItems")
+            let temp = {text: document.querySelector("#doneContainer").children[i].textContent,
+                        class: "done"}
+            doneArray.push(temp)                    
+        }
+    }
+
+    // deletes any elements that get dropped into the delete container
+    if(document.querySelector("#deleteContainer").childElementCount == 0);
+    else document.querySelector('#deleteContainer').removeChild(document.querySelector('#deleteContainer').children[0])
+
+    // sets localstorage == to the prior created arrays
+    localStorage.setItem("workingOn", JSON.stringify(workingArray))
+    localStorage.setItem("test", JSON.stringify(testArray))
+    localStorage.setItem("done", JSON.stringify(doneArray))
+}
+
 
 var timerEl = document.querySelector('#timer')
 var unixDueDate = dayjs('2023-05-18').unix();
@@ -118,18 +123,44 @@ timer = setInterval(function() {
 var addButton = document.querySelector('#addBtn');
 var inputModalBG = document.querySelector('#inputModal-background');
 var inputModal = document.querySelector('#inputModal');
-var saveInput = document.querySelector("#saveInput")
-var textInput = document.querySelector("#taskInput")
+
+var saveInput = document.querySelector("#saveInput");
+var textInput = document.querySelector("#taskInput");
+var saveTeam = document.querySelector("#saveTeam");
+var textTeam = document.querySelector("#textTeam")
+
+var addTeamBtn = document.querySelector('#addTeam');
+var teamModalBG = document.querySelector('#teamModal-background');
+var teamModal = document.querySelector('#teamModal');
+
+addTeamBtn.addEventListener('click', () => {
+    teamModal.classList.add('is-active');
+});
+
+teamModalBG.addEventListener('click', () => {
+    teamModal.classList.remove('is-active')
+});
 
 saveInput.addEventListener('click', function() {
 
     // creates a new task element under the working on card
     event.preventDefault()
-    console.log(textInput.value)
+    if(textInput.value.trim() == '') return
     workingOnContainer.appendChild(document.createElement("li"))
     workingOnContainer.lastElementChild.textContent = textInput.value
-    workingOnContainer.lastElementChild.classList.add("workingOnItems")
+    workingOnContainer.lastElementChild.classList.add("workingOn")
     inputModal.classList.remove('is-active')
+    save()
+})
+
+saveTeam.addEventListener('click', function() {
+    event.preventDefault()
+    if(textTeam.value.trim() == '') return
+    workingOnContainer.appendChild(document.createElement("li"))
+    workingOnContainer.lastElementChild.textContent = textTeam.value
+    workingOnContainer.lastElementChild.classList.add("teamMember")
+    teamModal.classList.remove('is-active')
+    save()
 })
 
 addButton.addEventListener('click', () => { // event listener for the add button
@@ -185,16 +216,4 @@ catBtn.addEventListener('click', function() { // event listener to open cat moda
     // retrieve and display cat picture
     catModal.children[0].children[0].children[1].setAttribute('src', 'https://cataas.com/cat')
 })
-
-var addTeamBtn = document.querySelector('#addTeam');
-var teamModalBG = document.querySelector('#teamModal-background');
-var teamModal = document.querySelector('#teamModal');
-
-addTeamBtn.addEventListener('click', () => {
-    teamModal.classList.add('is-active');
-});
-
-teamModalBG.addEventListener('click', () => {
-    teamModal.classList.remove('is-active')
-});
 
