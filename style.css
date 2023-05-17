@@ -53,3 +53,8 @@ li{
     border-radius: 10px;
     font-size: 1rem;
 }
+
+#box{
+    display: flex;
+    justify-content: center;
+}
