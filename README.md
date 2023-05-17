@@ -1,5 +1,5 @@
 
-## Project-1
+# Project-1
 
 # Created by:  
 
@@ -10,11 +10,6 @@ Kylie Fox, and
 Jessica Kelsey, 
 
 Each one of us assign ourself to our greatest strengths to complete and conquer thus project 
-
-
-Sources:
-Bulma,
-Dayjs
 
 
 
