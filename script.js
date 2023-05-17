@@ -149,7 +149,7 @@ saveInput.addEventListener('click', function() {
     workingOnContainer.appendChild(document.createElement("li"))
     workingOnContainer.lastElementChild.textContent = textInput.value
     workingOnContainer.lastElementChild.classList.add("workingOn")
-    textInput.value = ''
+    textInput.value = '';
     inputModal.classList.remove('is-active')
     save()
 })
@@ -160,7 +160,7 @@ saveTeam.addEventListener('click', function() {
     workingOnContainer.appendChild(document.createElement("li"))
     workingOnContainer.lastElementChild.textContent = textTeam.value
     workingOnContainer.lastElementChild.classList.add("teamMember")
-    textTeam.value = ''
+    textTeam.value = '';
     teamModal.classList.remove('is-active')
     save()
 })
